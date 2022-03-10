@@ -1,7 +1,7 @@
 function Snake() {
     this.x = 100;
     this.y = 100;
-    this.squareSize = 10;
+    this.squareSize = squareSize;
     this.xspead = 1*this.squareSize;
     this.yspead = 0;
     this.dir = (x , y) =>{
@@ -9,6 +9,7 @@ function Snake() {
         this.yspead = y*this.squareSize;
     }
     this.update = () => {
+        
         this.x += this.xspead;
         this.y += this.yspead;
     }
