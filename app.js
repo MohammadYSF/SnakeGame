@@ -21,17 +21,22 @@ const animate = () => {
     snake.update();
 }
 animate();
-document.addEventListener('keypress' , (e) => {
-    if (e.key == "ArrowUp") {
-        snake.dir(0,1);
-    }
-    else if (e.key == "ArrowDown") {
+window.addEventListener('keydown' , (e) => {
+    //up
+    if (e.keyCode == 38) {
+        console.log('hey');
         snake.dir(0,-1);
     }
-    else if(e.key == "ArrowLeft"){
+    //down
+    else if (e.keyCode == 40) {
+        snake.dir(0,1);
+    }
+    //left
+    else if(e.keyCode == 37){
         snake.dir(-1,0);
     }
-    else if(e.Key == "ArrowRight"){
+    //right
+    else if(e.keyCode == 39){
         snake.dir(1,0);
     }
 });
