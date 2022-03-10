@@ -1,5 +1,6 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext("2d");
+const frames_per_second = 30;
 const resize = () =>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -12,13 +13,17 @@ window.addEventListener('load' , () => {
 
 window.addEventListener('resize' , resize);
 let snake = new Snake();
-snake.show(ctx);
+
 console.log(snake);
 const animate = () => {
-    requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    snake.show(ctx);
-    snake.update();
+        snake.show(ctx);
+        snake.update();
+    setTimeout(() => {
+        requestAnimationFrame(animate);
+        
+    }, 1000/frames_per_second);
+  
 }
 animate();
 window.addEventListener('keydown' , (e) => {
