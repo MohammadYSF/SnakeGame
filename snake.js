@@ -4,6 +4,10 @@ function Snake() {
     this.xspead = 1;
     this.yspead = 0;
     this.squareSize = 10;
+    this.dir = (x , y) =>{
+        this.xspead += x;
+        this.yspead += y;
+    }
     this.update = () => {
         this.x += this.xspead;
         this.y += this.yspead;
