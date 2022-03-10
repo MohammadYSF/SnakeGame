@@ -1,16 +1,16 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext("2d");
 const frames_per_second = 10;
-const squareSize = 10;
-const canvas_width = window.innerWidth;
-const canvas_height = window.innerHeight;
+const squareSize = 30;
+const canvas_width = window.innerWidth - 900;
+const canvas_height = window.innerHeight - 200;
 let food = {
     x: 0,
     y: 0
 };
+let columns = Math.floor((canvas_width - squareSize) / squareSize);
+let rows = Math.floor((canvas_height-squareSize) / squareSize);
 const pickLocation = () => {
-    let columns = Math.floor(canvas_width / squareSize);
-    let rows = Math.floor(canvas_height / squareSize);
     let random_row = Math.floor((Math.random() * rows) + 1);
     let random_column = Math.floor((Math.random() * columns) + 1);
     food.y = random_row * squareSize;

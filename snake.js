@@ -3,8 +3,8 @@ function Posititon(x, y) {
     this.y = y;
 }
 function Snake() {
-    this.x = 100;
-    this.y = 100;
+    this.x = Math.floor((Math.random() * columns) + 1) * squareSize;
+    this.y = Math.floor((Math.random() * rows) + 1) * squareSize;
     this.squareSize = squareSize;
     this.xspead = 1 * this.squareSize;
     this.yspead = 0;
