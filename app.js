@@ -4,8 +4,6 @@ const frames_per_second = 10;
 const squareSize = 10;
 const canvas_width = window.innerWidth;
 const canvas_height = window.innerHeight;
-console.log(canvas_width);
-console.log(canvas_height);
 let food = {
     x: 0,
     y: 0
@@ -17,10 +15,6 @@ const pickLocation = () => {
     let random_column = Math.floor((Math.random() * columns) + 1);
     food.y = random_row * squareSize;
     food.x = random_column * squareSize;
-    console.log('number of columns : ' , columns);
-    console.log('number of rows: ' , rows);
-
-
 }
 const resize = () => {
     canvas.width = canvas_width;
@@ -57,7 +51,7 @@ window.addEventListener('keydown', (e) => {
    
     //up
     if (e.keyCode == 38) {
-        console.log('hey');
+
         snake.dir(0, -1);
         e.preventDefault();
     }
