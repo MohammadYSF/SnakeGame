@@ -10,11 +10,19 @@ let food = {
 };
 let columns = Math.floor((canvas_width - squareSize) / squareSize);
 let rows = Math.floor((canvas_height-squareSize) / squareSize);
+const getRandomLocation = () =>{
+    let random_row = Math.floor((Math.random() * rows) + 1);
+    let random_column = Math.floor((Math.random() * columns) + 1);
+    let pos = new Position(random_column * squareSize , random_row * squareSize);
+    return pos;
+}
+
 const pickLocation = () => {
     let random_row = Math.floor((Math.random() * rows) + 1);
     let random_column = Math.floor((Math.random() * columns) + 1);
-    food.y = random_row * squareSize;
-    food.x = random_column * squareSize;
+    food.x = getRandomLocation().x;
+    food.y = getRandomLocation().y;
+    
 }
 const resize = () => {
     canvas.width = canvas_width;
@@ -39,6 +47,7 @@ const animate = () => {
         pickLocation();
     }
     snake.show(ctx);
+    snake.death();
     snake.update();
     setTimeout(() => {
         requestAnimationFrame(animate);

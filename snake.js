@@ -3,8 +3,8 @@ function Posititon(x, y) {
     this.y = y;
 }
 function Snake() {
-    this.x = Math.floor((Math.random() * columns) + 1) * squareSize;
-    this.y = Math.floor((Math.random() * rows) + 1) * squareSize;
+    this.x = getRandomLocation().x;
+    this.y = getRandomLocation().y;
     this.squareSize = squareSize;
     this.xspead = 1 * this.squareSize;
     this.yspead = 0;
@@ -13,6 +13,19 @@ function Snake() {
     this.dir = (x, y) => {
         this.xspead = x * this.squareSize;
         this.yspead = y * this.squareSize;
+    }
+    this.death = () => {
+        if (this.x > canvas_width - this.squareSize ||this.x < 0 || this.y < 0 || this.y > canvas_height) {
+            this.total = 0;
+            this.tail = [];
+            let ps = getRandomLocation();
+            this.x = ps.x;
+            this.y = ps.y;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     this.update = () => {
 
