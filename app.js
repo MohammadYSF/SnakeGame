@@ -21,3 +21,17 @@ const animate = () => {
     snake.update();
 }
 animate();
+document.addEventListener('keypress' , (e) => {
+    if (e.key == "ArrowUp") {
+        snake.dir(0,1);
+    }
+    else if (e.key == "ArrowDown") {
+        snake.dir(0,-1);
+    }
+    else if(e.key == "ArrowLeft"){
+        snake.dir(-1,0);
+    }
+    else if(e.Key == "ArrowRight"){
+        snake.dir(1,0);
+    }
+});
