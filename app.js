@@ -41,6 +41,9 @@ const animate = () => {
     ctx.clearRect(0, 0, canvas_width, canvas_height);
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(food.x, food.y, squareSize, squareSize);
+    if (snake.eat(food)) {
+        pickLocation();
+    }
     snake.show(ctx);
     snake.update();
     setTimeout(() => {
