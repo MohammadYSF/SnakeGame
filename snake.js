@@ -1,7 +1,3 @@
-function Posititon(x, y) {
-    this.x = x;
-    this.y = y;
-}
 function Snake() {
     this.x = getRandomLocation().x;
     this.y = getRandomLocation().y;
