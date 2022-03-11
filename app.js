@@ -1,7 +1,7 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext("2d");
 const frames_per_second = 10;
-const squareSize = 30;
+const squareSize = 20;
 const canvas_width = window.innerWidth - 900;
 const canvas_height = window.innerHeight - 200;
 let food = {

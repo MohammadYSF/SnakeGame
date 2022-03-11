@@ -15,17 +15,26 @@ function Snake() {
         this.yspead = y * this.squareSize;
     }
     this.death = () => {
-        if (this.x > canvas_width - this.squareSize ||this.x < 0 || this.y < 0 || this.y > canvas_height) {
+        let flag = false;
+        if (this.x > canvas_width -this.squareSize ||this.x < 0 || this.y < 0 || this.y > canvas_height - this.squareSize) {
             this.total = 0;
             this.tail = [];
             let ps = getRandomLocation();
             this.x = ps.x;
             this.y = ps.y;
-            return true;
+            return true
         }
         else{
-            return false;
+            for (let i = 0; i < this.tail.length; i++) {
+                let d = Math.sqrt(Math.pow(Math.abs(this.x - this.tail[i][0]) , 2) + Math.pow(Math.abs(this.y - this.tail[i][1]) , 2)) 
+                if (d<5) {
+                    this.total = 0;
+                    this.tail = [];
+                    return true;
+                }
+            }   
         }
+        return false;
     }
     this.update = () => {
 
